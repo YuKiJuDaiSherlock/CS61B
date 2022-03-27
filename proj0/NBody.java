@@ -22,7 +22,8 @@ public class NBody{
 		double dt = Double.parseDouble(args[1]);
 		String filename = args[2];
 		In in = new In(filename);
-		Planet[] bodies = NBody.readPlanets(filename);
+		Planet[] bodies = NBody.readPlanets
+		(filename);
 		double Radius = readRadius(filename);
 
 		StdDraw.setScale(-Radius, Radius);
