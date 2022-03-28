@@ -20,12 +20,8 @@ public class LinkedListDeque<T> {
     	size = 0;
     }
     public LinkedListDeque(LinkedListDeque other) {
-    	StuffNode p1 = sentinel;
-    	StuffNode p2 = other.sentinel;
     	for (int i = 0; i < other.size; i++) {
-    		p1.next = new StuffNode(p2.next.item, sentinel, p1);
-    		p1 = p1.next;
-    		p2 = p2.next;
+    		addLast((T) other.get(i));
     	}
     }
 
