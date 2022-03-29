@@ -1,5 +1,5 @@
 public class ArrayDeque<T> {
-	private T[] items;
+    private T[] items;
 	private int size;
 	private int nextFirst;
 	private int nextLast;
@@ -22,20 +22,20 @@ public class ArrayDeque<T> {
 
 	private void resize(int ca) {
 		T[] a = (T[]) new Object[ca];
-		int Fi = nextFirst + 1;
+		
 
 		if (nextFirst == 0) {
-			System.arraycopy(items, 1, a, 1, items.length-1);
+			System.arraycopy(items, 1, a, 1, items.length - 1);
 			nextLast = items.length;
 		}
 		if (nextLast == items.length - 1) {
-			System.arraycopy(items, 0, a, 0, items.length-1);
+			System.arraycopy(items, 0, a, 0, items.length - 1);
 			nextFirst = a.length - 1;
-		}
-		else {
+		}else {
 			System.arraycopy(items, 0, a, 0, nextLast);
-			System.arraycopy(items, nextFirst+1, a, ca-items.length+nextFirst+1, items.length-nextFirst-1);
-			nextFirst = ca-items.length+nextFirst;
+			System.arraycopy(items, nextFirst + 1, a,
+			ca - items.length + nextFirst + 1, items.length - nextFirst - 1);
+			nextFirst = ca - items.length + nextFirst;
 		}
 		items = a;
 	}
@@ -110,10 +110,9 @@ public class ArrayDeque<T> {
 
 	public T get(int index) {
 		int res = nextFirst;
-		for (int i = 0; i < index + 1 ; i++) {
+		for (int i = 0; i < index + 1; i++) {
 			res = res + 1 > items.length - 1 ? 0 : res + 1;
 		}
 		return items[res];
 	}
-
 }

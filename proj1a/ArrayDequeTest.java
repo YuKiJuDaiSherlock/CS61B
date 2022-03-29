@@ -1,6 +1,6 @@
 public class ArrayDequeTest {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 		ArrayDeque<Integer> wxy = new ArrayDeque<>();
 		wxy.addFirst(1);
 		wxy.addFirst(2);
