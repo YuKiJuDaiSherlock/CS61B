@@ -19,17 +19,12 @@ public class LinkedListDeque<T> {
     	sentinel.prev = sentinel;
     	size = 0;
     }
-    public LinkedListDeque(LinkedListDeque other) {
-    	for (int i = 0; i < other.size; i++) {
-    		addLast((T) other.get(i));
-    	}
-    }
 
     public T getRecursive(int index) {
     	return getRecursive(index, sentinel);
     }
 
-	public T getRecursive(int index, StuffNode p) {
+	private T getRecursive(int index, StuffNode p) {
 		if (p.next == sentinel) {
 			return null;
 		}
