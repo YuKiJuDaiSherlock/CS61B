@@ -8,10 +8,6 @@ public class ArrayDequeTest {
 		wxy.addFirst(4);
 		wxy.addFirst(5);
 		wxy.addFirst(6);
-		wxy.addFirst(7);
-		wxy.addFirst(8);
-		wxy.addFirst(9);
-		wxy.addFirst(10);
 		System.out.println(wxy.get(2));
 		wxy.printDeque();
 	}

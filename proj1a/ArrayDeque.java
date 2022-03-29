@@ -5,7 +5,7 @@ public class ArrayDeque<T> {
     private int nextLast;
 
     public ArrayDeque() {
-		items = (T[]) new Object[8];
+	    items = (T[]) new Object[8];
 		size = 0;
 		nextFirst = 0;
 		nextLast = 1;
@@ -14,25 +14,15 @@ public class ArrayDeque<T> {
     private void resize(int ca) {
 		T[] a = (T[]) new Object[ca];
 		
-
-		if (nextFirst == 0) {
-			System.arraycopy(items, 1, a, 1, items.length - 1);
-			nextLast = items.length;
-		}
-		if (nextLast == items.length - 1) {
-			System.arraycopy(items, 0, a, 0, items.length - 1);
-			nextFirst = a.length - 1;
-		} else {
-			System.arraycopy(items, 0, a, 0, nextLast);
-		    System.arraycopy(items, nextFirst + 1, a,
-			    ca - items.length + nextFirst + 1, items.length - nextFirst - 1);
-			nextFirst = ca - items.length + nextFirst;
-		}
+		System.arraycopy(items, 0, a, 0, nextLast);
+	    System.arraycopy(items, nextFirst + 1, a,
+		    ca - items.length + nextFirst + 1, items.length - nextFirst - 1);
+		nextFirst = ca - items.length + nextFirst;
 		items = a;
 	}
 
 	public void addFirst(T item) {
-		if (nextFirst == nextLast) {
+		if (items[nextFirst] != null) {
 			resize(2 * items.length);
 		}
 		items[nextFirst] = item;
@@ -44,7 +34,7 @@ public class ArrayDeque<T> {
 	}
 
 	public void addLast(T item) {
-		if (nextFirst == nextLast) {
+		if (items[nextFirst] != null) {
 			resize(2 * items.length);
 		}
 		items[nextLast] = item;
