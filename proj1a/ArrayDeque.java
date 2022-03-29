@@ -21,6 +21,7 @@ public class ArrayDeque<T> {
 		items = a;
 	}
 
+
 	public void addFirst(T item) {
 		if (items[nextFirst] != null) {
 			resize(2 * items.length);
@@ -66,10 +67,13 @@ public class ArrayDeque<T> {
 	}
 
 	public T removeFirst() {
-		int temp = nextFirst + 1 > items.length - 1 ? 0 : nextFirst + 1;
-		if (temp == nextLast) {
+		if (items.length / size > 3) {
+			resize(items.length / 2);
+		}
+		if (size == 0) {
 			return null;
 		}
+		int temp = nextFirst + 1 > items.length - 1 ? 0 : nextFirst + 1;
 		T res = items[temp];
 		items[temp] = null;
 		nextFirst = temp;
@@ -78,10 +82,13 @@ public class ArrayDeque<T> {
 	}
 
 	public T removeLast() {
-		int temp = nextLast - 1 < 0 ? items.length - 1 : nextLast - 1;
-		if (temp == nextFirst) {
+		if (items.length / size > 3) {
+			resize(items.length / 2);
+		}
+		if (size == 0) {
 			return null;
 		}
+		int temp = nextLast - 1 < 0 ? items.length - 1 : nextLast - 1;
 		T res = items[temp];
 		items[temp] = null;
 		nextLast = temp;
