@@ -86,7 +86,7 @@ public class IntList {
             return B;
         }
         else {
-            A.rest = IntList.dcatenate(A.rest, B);
+            A.rest = dcatenate(A.rest, B);
             return A;
         }
     }
@@ -101,7 +101,7 @@ public class IntList {
             return B;
         }
         else {
-            return new IntList(A.first, IntList.catenate(A.rest, B));
+            return new IntList(A.first, catenate(A.rest, B));
         }
 
     }
