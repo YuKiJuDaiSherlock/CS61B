@@ -13,12 +13,18 @@ public class ArrayDeque<T> {
 
     private void resize(int ca) {
 		T[] a = (T[]) new Object[ca];
-		
+		if (nextLast == 0) {
+			System.arraycopy(items, 0, a, 0, size);
+			nextFirst = ca - 1;
+			nextLast = size;
+			items = a;
+		} else {
 		System.arraycopy(items, 0, a, 0, nextLast);
 	    System.arraycopy(items, nextFirst + 1, a,
 	        ca - items.length + nextFirst + 1, items.length - nextFirst - 1);
 		nextFirst = ca - items.length + nextFirst;
 		items = a;
+		}
 	}
 
 
@@ -63,7 +69,10 @@ public class ArrayDeque<T> {
 			temp += 1;
 		}
 		System.out.print('\n');
-		System.out.print(items.length);
+		System.out.println(items.length);
+		System.out.println(size);
+		System.out.println(nextFirst);
+		System.out.println(nextLast);
 	}
 
 	public T removeFirst() {
