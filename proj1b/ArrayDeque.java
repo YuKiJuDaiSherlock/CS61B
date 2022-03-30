@@ -1,11 +1,11 @@
-public class ArrayDeque<T> implements Deque<T>{
+public class ArrayDeque<T> implements Deque<T> {
     private T[] items;
     private int size;
     private int nextFirst;
     private int nextLast;
 
     public ArrayDeque() {
-	    items = (T[]) new Object[8];
+		items = (T[]) new Object[8];
 		size = 0;
 		nextFirst = 0;
 		nextLast = 1;
@@ -19,11 +19,11 @@ public class ArrayDeque<T> implements Deque<T>{
 			nextLast = size;
 			items = a;
 		} else {
-		System.arraycopy(items, 0, a, 0, nextLast);
-	    System.arraycopy(items, nextFirst + 1, a,
-	        ca - items.length + nextFirst + 1, items.length - nextFirst - 1);
-		nextFirst = ca - items.length + nextFirst;
-		items = a;
+			System.arraycopy(items, 0, a, 0, nextLast);
+	    	System.arraycopy(items, nextFirst + 1, a,
+	        	ca - items.length + nextFirst + 1, items.length - nextFirst - 1);
+			nextFirst = ca - items.length + nextFirst;
+			items = a;
 		}
 	}
 
