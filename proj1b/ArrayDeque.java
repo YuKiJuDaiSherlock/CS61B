@@ -20,7 +20,7 @@ public class ArrayDeque<T> implements Deque<T> {
 			items = a;
 		} else {
 			System.arraycopy(items, 0, a, 0, nextLast);
-	    	System.arraycopy(items, nextFirst + 1, a,
+			System.arraycopy(items, nextFirst + 1, a,
 	        	ca - items.length + nextFirst + 1, items.length - nextFirst - 1);
 			nextFirst = ca - items.length + nextFirst;
 			items = a;

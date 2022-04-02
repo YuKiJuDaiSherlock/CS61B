@@ -29,4 +29,5 @@ public class TestPalindrome {
         assertTrue(palindrome.isPalindrome("xacdby", cc1));
         assertFalse(palindrome.isPalindrome("wxy", cc1));
     }
+
 }
