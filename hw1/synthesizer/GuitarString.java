@@ -37,7 +37,7 @@ public class GuitarString {
     /* Return the double at the front of the buffer. */
     public double sample() {
         if (buffer.isEmpty()) {
-            throw new RuntimeException();
+            throw new RuntimeException("Ring buffer underflow");
         }
         return buffer.peek();
     }
